@@ -30,9 +30,9 @@ def restart_intent_callback(hermes, intentMessage):
     result_sentence = "System wird neu gestartet!"
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
-	time.sleep(10)
-	#os.system('reboot')
-	os.system('systemctl reboot') 
+    time.sleep(10)
+    #os.system('reboot')
+    os.system('systemctl reboot') 
 	
 
 def master_intent_callback(hermes, intent_message):

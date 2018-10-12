@@ -30,6 +30,10 @@ You also need [SAM](https://snips.gitbook.io/getting-started/installation) as a 
       ```bash
       sam service log
       ```
+   Or
+      ```bash
+      snips-skill-server
+      ```	
 	
 ## Usage
 
