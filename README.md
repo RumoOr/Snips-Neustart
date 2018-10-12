@@ -1,12 +1,17 @@
 # Snips-Neustart
 A german restart app for Snips.ai
 
-## Installation
+### Getting Started
 
-**Important:** The following instructions assume that [Snips](https://snips.gitbook.io/documentation/snips-basics) is
-already configured and running on your device. 
-[SAM](https://snips.gitbook.io/getting-started/installation) should
-also already be set up and connected to your device and your account.
+These instructions will give you an advice how to setup the app on your snips running device. 
+
+### Prerequisites
+
+You need [Snips](https://snips.gitbook.io/documentation/snips-basics) already configured and running on your device. 
+
+You also need [SAM](https://snips.gitbook.io/getting-started/installation) as a command line interface to set up and connected your device and your account.
+
+### Installing
 
 1. In the German [app store](https://console.snips.ai/) add the
 [app](https://console.snips.ai/app-editor/bundle_AdmAbpqQ2nE7) `Neustart` to your *German* assistant.
@@ -27,11 +32,11 @@ With this app you can order Snips to reboot your system.
 
 ### Example sentences
 
-- *Neustart*
-- *Bitte neustarten*
-- *Starte jetzt neu*
-- *Mach jetzt einen Neustart*
-- [...]
+* *Neustart*
+* *Bitte neustarten*
+* *Starte jetzt neu*
+* *Mach jetzt einen Neustart*
+* [...]
 
 ## Contribution
 
