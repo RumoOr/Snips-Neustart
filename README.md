@@ -25,6 +25,11 @@ You also need [SAM](https://snips.gitbook.io/getting-started/installation) as a 
       ```bash
       sam install assistant
       ```
+	  
+3. You can debug potential errors with:
+      ```bash
+      sam service log
+      ```
 	
 ## Usage
 
@@ -40,7 +45,7 @@ With this app you can order Snips to reboot your system.
 
 ## Contribution
 
-Please report errors (you can see them with `sam service log`) and bugs by
+Please report errors and bugs by
 opening a [new issue](https://github.com/RumoOr/Snips-Neustart/issues/new).
 You can also write other ideas for this skill. Thank you for your contribution.
 
