@@ -23,7 +23,7 @@ also already be set up and connected to your device and your account.
 	
 ## Usage
 
-With this app you can ask Snips to reboot your system.
+With this app you can order Snips to reboot your system.
 
 ### Example sentences
 
