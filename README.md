@@ -1,5 +1,5 @@
 # Snips-Neustart
-A restart app for Snips.ai
+A german restart app for Snips.ai
 
 ## Installation
 
@@ -9,7 +9,7 @@ already configured and running on your device.
 also already be set up and connected to your device and your account.
 
 1. In the German [app store](https://console.snips.ai/) add the
-[app](https://console.snips.ai/app-editor/bundle_AdmAbpqQ2nE7)) `Neustart` to your *German* assistant.
+[app](https://console.snips.ai/app-editor/bundle_AdmAbpqQ2nE7) `Neustart` to your *German* assistant.
 
 2. If you already have the same assistant on your platform, update it with:
       ```bash
@@ -39,6 +39,6 @@ Please report errors (you can see them with `sam service log`) and bugs by
 opening a [new issue](https://github.com/RumoOr/Snips-Neustart/issues/new).
 You can also write other ideas for this skill. Thank you for your contribution.
 
-## Thanks
+## Thanks To
 
-to [MrJohnZoidberg] (https://github.com/MrJohnZoidberg) for his bunch of snips app examples 
+[MrJohnZoidberg](https://github.com/MrJohnZoidberg) for his bunch of snips app examples 
