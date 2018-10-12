@@ -6,7 +6,6 @@ from hermes_python.hermes import Hermes
 from hermes_python.ontology import *
 import io
 import os
-import time
 import datetime
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
@@ -36,9 +35,7 @@ def action_wrapper(hermes, intentMessage, conf):
     result_sentence = "System wird neu gestartet!"
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
-    time.sleep(10)
-    #os.system('reboot')
-    os.system('systemctl reboot') 
+    os.system('systemctl reboot')
 	
 
 def master_intent_callback(hermes, intent_message):
