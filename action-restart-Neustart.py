@@ -43,6 +43,4 @@ def master_intent_callback(hermes, intent_message):
 
 if __name__ == "__main__":
     with Hermes("localhost:1883") as h:
-		# app has only one (restart) intent 
-		#h.subscribe_intent(master_intent_callback).start()
         h.subscribe_intent("RumoOr:restart", restart_intent_callback).start()
