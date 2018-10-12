@@ -26,20 +26,23 @@ def read_configuration_file(configuration_file):
         return dict()
 
 		
-def subscribe_intent_callback(hermes, intentMessage):
-    conf = read_configuration_file(CONFIG_INI)
-    action_wrapper(hermes, intentMessage, conf)
-
-
-def action_wrapper(hermes, intentMessage, conf):
+def restart_intent_callback(hermes, intentMessage):
     result_sentence = "System wird neu gestartet!"
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
 	time.sleep(10)
 	#os.system('reboot')
 	os.system('systemctl reboot') 
+	
+
+def master_intent_callback(hermes, intent_message):
+	coming_intent = intent_message.intent.intent_name
+	if coming_intent == 'RumoOr:restart':
+		restart_intent_callback(hermes, intentMessage)
 
 
 if __name__ == "__main__":
     with Hermes("localhost:1883") as h:
-        h.subscribe_intent("domi:currentDate", subscribe_intent_callback).start()
+		# app has only one (restart) intent 
+		#h.subscribe_intent(master_intent_callback).start()
+        h.subscribe_intent("RumoOr:restart", restart_intent_callback).start()
