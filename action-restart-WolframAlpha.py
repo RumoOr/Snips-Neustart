@@ -1,12 +1,13 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
-import ConfigParser
-from hermes_python.hermes import Hermes
-from hermes_python.ontology import *
 import io
 import os
 import datetime
+import ConfigParser
+
+from hermes_python.hermes import Hermes
+from hermes_python.ontology import *
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
 CONFIG_INI = "config.ini"
@@ -27,22 +28,15 @@ def read_configuration_file(configuration_file):
 
 
 def subscribe_intent_callback(hermes, intentMessage):
-    conf = read_configuration_file(CONFIG_INI)
-    action_wrapper(hermes, intentMessage, conf)
+    #conf = read_configuration_file(CONFIG_INI)
+    action_wrapper(hermes, intentMessage)
 
 		
-def action_wrapper(hermes, intentMessage, conf):
-    result_sentence = "System wird neu gestartet!"
+def action_wrapper(hermes, intentMessage):
+    result_sentence = "Lass uns anfangen!"
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
-    os.system('systemctl reboot')
 	
-
-def master_intent_callback(hermes, intent_message):
-	coming_intent = intent_message.intent.intent_name
-	if coming_intent == 'RumoOr:restart':
-		subscribe_intent_callback(hermes, intentMessage)
-
 
 if __name__ == "__main__":
     with Hermes("localhost:1883") as h:
