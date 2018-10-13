@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import io
-import os
 import datetime
 import ConfigParser
 
