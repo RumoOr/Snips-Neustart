@@ -1,6 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
+import os
 import io
 import datetime
 import ConfigParser
@@ -8,8 +9,12 @@ import ConfigParser
 from hermes_python.hermes import Hermes
 from hermes_python.ontology import *
 
+from google.cloud import translate
+
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
 CONFIG_INI = "config.ini"
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/pi/Downloads/Snips-260d0449fd87.json"
 
 class SnipsConfigParser(ConfigParser.SafeConfigParser):
     def to_dict(self):
@@ -32,7 +37,9 @@ def subscribe_intent_callback(hermes, intentMessage):
 
 		
 def action_wrapper(hermes, intentMessage):
-    result_sentence = "Lass uns anfangen!"
+    translator = translate.Client()
+    question = translator.translate('who is the leader of china?', target_language='de')
+    result_sentence = question['translatedText']
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
 	
