@@ -20,7 +20,7 @@ fi
 cp -r /home/pi/local/Snips-260d0449fd87.json gca.json
 
 echo "Reading config...." >&2
-. config.ini
+source config.ini
 echo "Config for the username: $wolfram_api_key" >&2
 
 pip install -r requirements.txt
