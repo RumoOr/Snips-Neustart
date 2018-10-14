@@ -37,8 +37,6 @@ def subscribe_intent_callback(hermes, intentMessage):
 		
 def action_wrapper(hermes, intentMessage):
     credentials = service_account.Credentials.from_service_account_file('/home/pi/Downloads/Snips-260d0449fd87.json')
-    credentials = credentials.with_scopes(['https://www.googleapis.com/auth/devstorage.read_write'])
-    #os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/pi/Downloads/Snips-260d0449fd87.json"
     translator = translate.Client(credentials=credentials)
     question = translator.translate('who is the leader of china?', target_language='de')
     result_sentence = question['translatedText']
