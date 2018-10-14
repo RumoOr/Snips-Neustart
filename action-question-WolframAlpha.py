@@ -35,12 +35,13 @@ def read_configuration_file(configuration_file):
 
 
 def read_google_credentials():
+    print("start")
+    print(wolfram_api_key)
+    print(google_cloud_api_json_path)
     filename = os.path.join(os.path.dirname(__file__), 'gca.json')
     if not os.path.exists(filename):
         print(filename)
-        shutil.copyfile(google_cloud_api_json_path, filename)  
-    print(wolfram_api_key)
-    print(google_cloud_api_json_path)
+        shutil.copyfile(google_cloud_api_json_path, filename)   
     return service_account.Credentials.from_service_account_file(filename) 
 
 
