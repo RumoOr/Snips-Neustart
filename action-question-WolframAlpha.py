@@ -36,7 +36,9 @@ def subscribe_intent_callback(hermes, intentMessage):
 
 		
 def action_wrapper(hermes, intentMessage):
-    credentials = service_account.Credentials.from_service_account_file('/home/pi/local/Snips-260d0449fd87.json')
+    dirname = os.path.dirname(__file__)
+    filename = os.path.join(dirname, 'test.json')
+    credentials = service_account.Credentials.from_service_account_file(filename)
     translator = translate.Client(credentials=credentials)
     question = translator.translate('who is the leader of china?', target_language='de')
     result_sentence = question['translatedText']

@@ -17,6 +17,6 @@ fi
 
 . $VENV/bin/activate
 
-cp /home/pi/local/Snips-260d0449fd87.json test.json
+cp /home/pi/local/Snips-260d0449fd87.json . test.json
 
 pip install -r requirements.txt
