@@ -16,9 +16,6 @@ from google.oauth2 import service_account
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
 CONFIG_INI = "config.ini"
 
-wolfram_api_key = None
-google_cloud_api_json_path = None
-
 class SnipsConfigParser(ConfigParser.SafeConfigParser):
     def to_dict(self):
         return {section : {option_name : option for option_name, option in self.items(section)} for section in self.sections()}
@@ -34,26 +31,23 @@ def read_configuration_file(configuration_file):
         return dict()
 
 
-def read_google_credentials():
-    print("start")
-    print(wolfram_api_key)
-    print(google_cloud_api_json_path)
+def read_google_credentials(path):
     filename = os.path.join(os.path.dirname(__file__), 'gca.json')
     if not os.path.exists(filename):
-        print(filename)
-        shutil.copyfile(google_cloud_api_json_path, filename)   
+        shutil.copyfile(path, filename)   
     return service_account.Credentials.from_service_account_file(filename) 
 
 
 def subscribe_intent_callback(hermes, intentMessage):
-    conf = read_configuration_file(CONFIG_INI)
-    wolfram_api_key = conf['secret']['wolfram_api_key']
-    google_cloud_api_json_path = conf['secret']['google_cloud_api_json_path']
-    action_wrapper(hermes, intentMessage)
+    config = read_configuration_file(CONFIG_INI)   
+    action_wrapper(hermes, intentMessage, config)
 
 		
-def action_wrapper(hermes, intentMessage):
-    translator = translate.Client(credentials=read_google_credentials())
+def action_wrapper(hermes, intentMessage, config):
+   # waa_key = config['secret']['wolfram_api_key']
+    gca_path = config['secret']['google_cloud_api_json_path']
+    credentials = read_google_credentials(gca_path)
+    translator = translate.Client(credentials=credentials)
     question = translator.translate('who is the leader of china?', target_language='de')
     result_sentence = question['translatedText']
     current_session_id = intentMessage.session_id
