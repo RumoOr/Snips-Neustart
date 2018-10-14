@@ -34,10 +34,7 @@ def read_configuration_file(configuration_file):
 def read_google_credentials(path):
     filename = os.path.join(os.path.dirname(__file__), 'gca.json')
     if not os.path.exists(filename):
-        #shutil.copyfile(path, filename)   
-        with io.open(path, 'r', encoding='utf-8') as json_file:
-            with filename.open('wb') as out:
-                out.write(json_file)
+        shutil.copyfile(path, filename)
     return service_account.Credentials.from_service_account_file(filename) 
 
 
