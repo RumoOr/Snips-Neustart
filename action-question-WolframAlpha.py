@@ -30,16 +30,18 @@ def read_configuration_file(configuration_file):
         return dict()
 
 
+def get_google_credentials():
+    filename = os.path.join(os.path.dirname(__file__), 'gca.json')
+    return service_account.Credentials.from_service_account_file(filename) 
+
+
 def subscribe_intent_callback(hermes, intentMessage):
     #conf = read_configuration_file(CONFIG_INI)
     action_wrapper(hermes, intentMessage)
 
 		
 def action_wrapper(hermes, intentMessage):
-    dirname = os.path.dirname(__file__)
-    filename = os.path.join(dirname, 'test.json')
-    credentials = service_account.Credentials.from_service_account_file(filename)
-    translator = translate.Client(credentials=credentials)
+    translator = translate.Client(credentials=get_google_credentials())
     question = translator.translate('who is the leader of china?', target_language='de')
     result_sentence = question['translatedText']
     current_session_id = intentMessage.session_id
