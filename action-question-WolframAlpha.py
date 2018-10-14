@@ -3,6 +3,7 @@
 
 import os
 import io
+import shutil
 import datetime
 import ConfigParser
 
@@ -14,6 +15,9 @@ from google.oauth2 import service_account
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
 CONFIG_INI = "config.ini"
+
+wolfram_api_key = None
+google_cloud_api_json_path = None
 
 class SnipsConfigParser(ConfigParser.SafeConfigParser):
     def to_dict(self):
@@ -32,11 +36,17 @@ def read_configuration_file(configuration_file):
 
 def read_google_credentials():
     filename = os.path.join(os.path.dirname(__file__), 'gca.json')
+    if not os.path.exists(filename):
+        shutil.copyfile(google_cloud_api_json_path, filename)  
     return service_account.Credentials.from_service_account_file(filename) 
 
 
 def subscribe_intent_callback(hermes, intentMessage):
-    #conf = read_configuration_file(CONFIG_INI)
+    conf = read_configuration_file(CONFIG_INI)
+    wolfram_api_key = conf['secret']['wolfram_api_key']
+    google_cloud_api_json_path = conf['secret']['google_cloud_api_json_path']
+    print(wolfram_api_key)
+    print(google_cloud_api_json_path)
     action_wrapper(hermes, intentMessage)
 
 		
