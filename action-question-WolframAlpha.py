@@ -31,13 +31,6 @@ def read_configuration_file(configuration_file):
         return dict()
 
 
-def read_google_credentials(path):
-    filename = os.path.join(os.path.dirname(__file__), 'gca.json')
-    if not os.path.exists(filename):
-        shutil.copyfile(path, filename)
-    return service_account.Credentials.from_service_account_file(filename) 
-
-
 def subscribe_intent_callback(hermes, intentMessage):
     config = read_configuration_file(CONFIG_INI)   
     action_wrapper(hermes, intentMessage, config)
@@ -46,7 +39,7 @@ def subscribe_intent_callback(hermes, intentMessage):
 def action_wrapper(hermes, intentMessage, config):
    # waa_key = config['secret']['wolfram_api_key']
     gca_path = config['secret']['google_cloud_api_json_path']
-    credentials = read_google_credentials(gca_path)
+    credentials = service_account.Credentials.from_service_account_file(gca_path) 
     translator = translate.Client(credentials=credentials)
     question = translator.translate('who is the leader of china?', target_language='de')
     result_sentence = question['translatedText']
