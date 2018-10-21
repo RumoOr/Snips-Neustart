@@ -44,7 +44,6 @@ class Omniscient:
                 if (text == ''): 
                     text = TEXT_ANSWER_ERROR
                 else:
-                    print('translate back') 
                     text = self.translator.translate(text, source_language='en', target_language='de')['translatedText']
             print('finished') 
             return text

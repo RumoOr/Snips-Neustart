@@ -30,7 +30,9 @@ def read_configuration_file(configuration_file):
 
 def subscribe_intent_callback(hermes, intentMessage):
     #conf = read_configuration_file(CONFIG_INI)
-    hermes.publish_end_session(intentMessage.session_id, omniscient.get_answer(intentMessage.input))
+    message = omniscient.get_answer(intentMessage.input)
+    print('end session: ' + message) 
+    hermes.publish_end_session(intentMessage.session_id, message)
 
 
 if __name__ == "__main__":
