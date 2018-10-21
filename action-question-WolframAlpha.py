@@ -6,6 +6,7 @@ import io
 import shutil
 import datetime
 import ConfigParser
+import wolframalpha
 
 from hermes_python.hermes import Hermes
 from hermes_python.ontology import *
@@ -15,6 +16,9 @@ from google.oauth2 import service_account
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
 CONFIG_INI = "config.ini"
+
+TEXT_QUESTION_ERROR = 'Ich habe die Frage leider nicht verstanden.'
+TEXT_ANSWER_ERROR = 'Dazu habe ich leider keine Antwort.'
 
 class SnipsConfigParser(ConfigParser.SafeConfigParser):
     def to_dict(self):
@@ -37,11 +41,12 @@ def subscribe_intent_callback(hermes, intentMessage):
 
 		
 def action_wrapper(hermes, intentMessage, config):
-   # waa_key = config['secret']['wolfram_api_key']
+    waa_key = config['secret']['wolfram_api_key']
+    wolfram = wolframalpha.Client(waa_key)
     gca_path = config['secret']['google_cloud_api_json_path']
     credentials = service_account.Credentials.from_service_account_file(gca_path) 
     translator = translate.Client(credentials=credentials)
-    question = translator.translate('who is the leader of china?', target_language='de')
+    question = translator.translate(intentMessage.input, target_language='en')
     result_sentence = question['translatedText']
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
