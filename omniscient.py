@@ -25,6 +25,7 @@ class Omniscient:
         self.wolfram = wolframalpha.Client(self.wolfram_key)
 
     def get_answer(self, question):
+        return 'Prinzessin Fantagiro'
         try: 
             question = self.translator.translate('wer war der erste bundeskanzler von deutschland', target_language='en')
             print(question['translatedText'])
