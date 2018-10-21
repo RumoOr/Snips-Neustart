@@ -28,10 +28,9 @@ def read_configuration_file(configuration_file):
 
 def subscribe_intent_callback(hermes, intentMessage):
     #conf = read_configuration_file(CONFIG_INI)
-    message = omniscient.get_answer(intentMessage.input)
-    print('end session: ' + message)
-    current_session_id = intentMessage.session_id
-    hermes.publish_end_session(current_session_id, 'Otto Graf von Bismark')
+    #message = omniscient.get_answer(intentMessage.input)
+    #print('end session: ' + message)
+    hermes.publish_end_session(intentMessage.session_id, 'Otto Graf von Bismark')
 
 
 if __name__ == "__main__":
