@@ -45,6 +45,8 @@ class Omniscient:
                     text = TEXT_ANSWER_ERROR
                 else:
                     text = self.translator.translate(text, source_language='en', target_language='de')['translatedText']
+                    text = text.replace('° C' , 'Grad Celsius')
+                    text = text.replace('°' , 'Grad')
             print('finished') 
             return text
         except:
