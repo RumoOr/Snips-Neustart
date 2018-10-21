@@ -42,7 +42,7 @@ def subscribe_intent_callback(hermes, intentMessage):
 		
 def action_wrapper(hermes, intentMessage, config):
     waa_key = config['secret']['wolfram_api_key']
-    wolfram = wolframalpha.Client(waa_key)
+    #wolfram = wolframalpha.Client(waa_key)
     gca_path = config['secret']['google_cloud_api_json_path']
     credentials = service_account.Credentials.from_service_account_file(gca_path) 
     translator = translate.Client(credentials=credentials)
