@@ -35,21 +35,17 @@ class Omniscient:
             print('wolfram returned: ' + res['@success'])
             text = TEXT_QUESTION_ERROR          
             if res['@success'] == 'true':
-                try:
-                    text = next(res.results, text).text  
-                    return text       
-                    answer = self.translator.translate(text, source_language='en', target_language='de')
-                    text = answer['translatedText']            
-                    text = text.replace(' |' , ',')
-                    for c in ['(', '[']:
-                        if c in text: 
-                            text = next(iter(text.split(c, 1)))
-                    text = text.rstrip()
-                    if (text == ''): 
-                        text = TEXT_ANSWER_ERROR
-                except:
+                text = next(res.results, text).text  
+                return text       
+                answer = self.translator.translate(text, source_language='en', target_language='de')
+                text = answer['translatedText']            
+                text = text.replace(' |' , ',')
+                for c in ['(', '[']:
+                    if c in text: 
+                        text = next(iter(text.split(c, 1)))
+                text = text.rstrip()
+                if (text == ''): 
                     text = TEXT_ANSWER_ERROR
             return text
         except:
-            return TEXT_QUESTION_ERROR  
-  
+            return TEXT_QUESTION_ERROR    
