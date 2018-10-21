@@ -28,9 +28,9 @@ class Omniscient:
         try: 
             question = self.translator.translate('wer war der erste bundeskanzler von deutschland', target_language='en')
             print(question['translatedText'])
-            res = self.wolfram.query(question['translatedText'])
-            print('wolfram returned: ' + res['@success'])
             return 'Biene Maja'
+            res = self.wolfram.query(question['translatedText'])
+            print('wolfram returned: ' + res['@success'])           
             text = TEXT_QUESTION_ERROR          
             if res['@success'] == 'true':
                 text = next(res.results, text).text                     
