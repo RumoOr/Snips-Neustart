@@ -46,7 +46,7 @@ def action_wrapper(hermes, intentMessage, config):
     gca_path = config['secret']['google_cloud_api_json_path']
     credentials = service_account.Credentials.from_service_account_file(gca_path) 
     translator = translate.Client(credentials=credentials)
-    question = translator.translate(intentMessage.input, target_language='en')
+    question = translator.translate("input message " + intentMessage.input, target_language='de')
     result_sentence = question['translatedText']
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
