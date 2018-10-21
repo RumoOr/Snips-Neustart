@@ -28,12 +28,18 @@ class Omniscient:
         try: 
             question = self.translator.translate('wer war der erste bundeskanzler von deutschland', target_language='en')
             print(question['translatedText'])
-            return 'Biene Maja'
-            res = self.wolfram.query(question['translatedText'])
+            params = (
+                ('format', 'plaintext'),
+                ('includepodid', 'Result'),
+                ('podindex', '1'),
+                ('units', 'metric'),
+                ('async', 'false'),
+            )
+            res = self.wolfram.query(input=question['translatedText'], params=params)
             print('wolfram returned: ' + res['@success'])           
             text = TEXT_QUESTION_ERROR          
             if res['@success'] == 'true':
-                text = next(res.results, text).text                     
+                text = res['pod']['subpod']['plaintext']                     
                 text = text.replace(' |' , ',')
                 for c in ['(', '[']:
                     if c in text: 
