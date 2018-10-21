@@ -29,7 +29,7 @@ class Omniscient:
 
     def get_answer(self, question):
         try: 
-            question = self.translator.translate('wie ist das wetter in leipzig', target_language='en')
+            question = self.translator.translate('wer war der erste bundeskanzler von deutschland', target_language='en')
             print(question['translatedText'])
             res = self.wolfram.query(question['translatedText'])
             print('wolfram returned: ' + res['@success'])
@@ -45,9 +45,6 @@ class Omniscient:
                     text = TEXT_ANSWER_ERROR
                 else:
                     text = self.translator.translate(text, source_language='en', target_language='de')['translatedText']
-                    text = text.replace('° C' , 'Grad Celsius')
-                    text = text.replace('°' , 'Grad')
-            print('finished') 
             return text
         except:
             return TEXT_QUESTION_ERROR    
