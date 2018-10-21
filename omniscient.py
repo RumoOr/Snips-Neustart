@@ -35,7 +35,8 @@ class Omniscient:
             text = TEXT_QUESTION_ERROR          
             if res['@success'] == 'true':
                 try:
-                    text = next(res.results, text).text         
+                    text = next(res.results, text).text  
+                    return text       
                     answer = self.translator.translate(text, source_language='en', target_language='de')
                     text = answer['translatedText']            
                     text = text.replace(' |' , ',')
