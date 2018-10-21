@@ -24,13 +24,13 @@ class Omniscient:
         self.translator = translate.Client(credentials=credentials)
         self.wolfram = wolframalpha.Client(self.wolfram_key)
 
-    def get_answer(self, question):
-        return 'Prinzessin Fantagiro'
+    def get_answer(self, question):       
         try: 
             question = self.translator.translate('wer war der erste bundeskanzler von deutschland', target_language='en')
             print(question['translatedText'])
             res = self.wolfram.query(question['translatedText'])
             print('wolfram returned: ' + res['@success'])
+            return 'Biene Maja'
             text = TEXT_QUESTION_ERROR          
             if res['@success'] == 'true':
                 text = next(res.results, text).text                     
