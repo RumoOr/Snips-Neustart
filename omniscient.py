@@ -32,8 +32,7 @@ class Omniscient:
             question = self.translator.translate('wie ist das wetter in leipzig', target_language='en')
             print(question['translatedText'])
             res = self.wolfram.query(question['translatedText'])
-            text = TEXT_QUESTION_ERROR
-            return text
+            text = TEXT_QUESTION_ERROR          
             if res['@success'] == 'true':
                 try:
                     text = next(res.results, text).text         
