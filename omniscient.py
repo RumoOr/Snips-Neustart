@@ -30,14 +30,15 @@ class Omniscient:
     def get_answer(self, question):
         try: 
             question = self.translator.translate('wie ist das wetter in leipzig', target_language='en')
+            print(question['translatedText'])
             res = self.wolfram.query(question['translatedText'])
             text = TEXT_QUESTION_ERROR
+            return text
             if res['@success'] == 'true':
                 try:
                     text = next(res.results, text).text         
                     answer = self.translator.translate(text, source_language='en', target_language='de')
-                    text = answer['translatedText']
-                    return text
+                    text = answer['translatedText']            
                     text = text.replace(' |' , ',')
                     for c in ['(', '[']:
                         if c in text: 
