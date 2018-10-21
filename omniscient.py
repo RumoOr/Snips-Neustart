@@ -35,12 +35,16 @@ class Omniscient:
             print('wolfram returned: ' + res['@success'])
             text = TEXT_QUESTION_ERROR          
             if res['@success'] == 'true':
-                text = next(res.results, text).text                            
+                text = next(res.results, text).text   
+                print('step 1')                         
                 text = text.replace(' |' , ',')
+                print('step 2') 
                 for c in ['(', '[']:
                     if c in text: 
                         text = next(iter(text.split(c, 1)))
+                print('step 3') 
                 text = text.rstrip()
+                print('step 4') 
                 if (text == ''): 
                     text = TEXT_ANSWER_ERROR
                 else:
