@@ -1,5 +1,5 @@
 # Snips-Neustart
-A german knowledge app for Snips.ai that uses WolframAlpha and Google Translate API's.
+A german knowledge app for Snips.ai that uses `WolframAlpha` and `Google Translate`.
 
 ### Getting Started
 
@@ -14,9 +14,19 @@ You also need [SAM](https://snips.gitbook.io/getting-started/installation) as a 
 ### Installing
 
 1. In the German [app store](https://console.snips.ai/) add the
-[app](https://console.snips.ai/app-editor/bundle_AdmAbpqQ2nE7) `Neustart` to your *German* assistant.
+[app](https://console.snips.ai/app-editor/bundle_AdmAbpqQ2nE7) `WolframAlpha` to your *German* assistant.
 
-2. If you already have the same assistant on your platform, update it with:
+2. Before you install the app make sure that you have copied your `google cloud account file.json` into the given system directory.
+      ```bash
+      cp your_google_cloud_account_file.json /sys/your_google_cloud_account_file.json
+      ```
+
+   Make sure that all required file permissions are set:
+      ```bash
+      sam install assistant
+      ```
+	  
+3. If you already have the same assistant on your platform, update it with:
       ```bash
       sam update-assistant
       ```
@@ -26,7 +36,9 @@ You also need [SAM](https://snips.gitbook.io/getting-started/installation) as a 
       sam install assistant
       ```
 	  
-3. You can debug potential errors with `sam service log` or `snips-skill-server`
+4. During installation you will asked for entering your `wolfram alpha api key` and the filepath of your `google cloud account file.json`
+
+5. You can debug potential errors with `sam service log` or `snips-skill-server`
 	
 ## Usage
 
@@ -36,7 +48,7 @@ With this app you can ask Snips several questions.
 
 * *Wo steht der Eiffelturm*
 * *Wo wurde Albert Einstein geboren*
-* *Woran starb Marie Curie *
+* *Woran starb Marie Curie*
 * *Wofür steht CDU*
 * *Wofür steht die Abkürzung HTML*
 * *Wie groß ist der Mount Everest*

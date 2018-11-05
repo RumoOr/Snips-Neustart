@@ -24,9 +24,9 @@ class Omniscient:
         self.translator = translate.Client(credentials=credentials)
         self.wolfram = wolframalpha.Client(self.wolfram_key)
 
-    def get_answer(self, question):       
-        try: 
-            question = self.translator.translate('wer war der erste bundeskanzler von deutschland', target_language='en')
+    def get_answer(self, q_text):       
+        try:
+            question = self.translator.translate(q_text, target_language='en')
             print(question['translatedText'])
             params = (
                 ('format', 'plaintext'),
