@@ -1,4 +1,4 @@
-# Snips-Neustart
+# Snips-WolframAlpha
 A *german* knowledge app for Snips.ai that uses `WolframAlpha` and `Google Translate`.
 
 ### Getting Started
@@ -16,7 +16,7 @@ You also need [SAM](https://snips.gitbook.io/getting-started/installation) as a 
 1. In the German [app store](https://console.snips.ai/) add the
 [app](https://console.snips.ai/app-editor/bundle_AdmAbpqQ2nE7) `WolframAlpha` to your *german* assistant.
 
-2. Before you install the app make sure that you copy your `Google Cloud Account (GCA)` file into `/sys/...`.
+2. Before you install the app make sure that you copy your `Google Cloud Account (GCA) file` into `/sys/...`.
       ```bash
       cp your_gca_file.json /sys/your_gca_file.json
       ```
@@ -38,7 +38,7 @@ You also need [SAM](https://snips.gitbook.io/getting-started/installation) as a 
 	  
 4. During installation you will get asked for your `WolframAlpha API key` and the path of your `GCA file`
 
-5. You can debug potential errors with `sam service log` or `snips-skill-server`
+5. You can debug potential errors with `sam service log` and `snips-skill-server`
 	
 ## Usage
 
