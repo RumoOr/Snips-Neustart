@@ -1,5 +1,5 @@
 # Snips-Neustart
-A german restart app for Snips.ai
+A german knowledge app for Snips.ai that uses WolframAlpha and Google Translate API's.
 
 ### Getting Started
 
@@ -30,14 +30,35 @@ You also need [SAM](https://snips.gitbook.io/getting-started/installation) as a 
 	
 ## Usage
 
-With this app you can order Snips to reboot your system.
+With this app you can ask Snips several questions.
 
 ### Example sentences
 
-* *Neustart*
-* *Bitte neustarten*
-* *Starte jetzt neu*
-* *Mach jetzt einen Neustart*
+* *Wo steht der Eiffelturm*
+* *Wo wurde Albert Einstein geboren*
+* *Woran starb Marie Curie *
+* *Wofür steht CDU*
+* *Wofür steht die Abkürzung HTML*
+* *Wie groß ist der Mount Everest*
+* *Wie tief ist der Bodensee*
+* *Wieweit weit ist es von Paris nach Berlin*
+* *Wieviel Sterne hat die Amerikanische Flagge*
+* *Wieviel ergibt 24 mal 50*
+* *Wann wurde Leonardo Da Vinci geboren*
+* *Wann wurde Norwegen unabhängig*
+* *Was bedeutet Apartheid*
+* *Was ist die Wurzel aus 100*
+* *Was ist ein Säugetier*
+* *Welches Formelzeichen hat Silber*
+* *Welches ist das höchste Gebäude der Welt*
+* *Welchen Aggregatzustand hat Wasser*
+* *Welchen Wert hat Gold*
+* *Welcher Tag ist heut*
+* *Welcher Stern ist der Erde am nähesten*
+* *Welche Dichte hat Eisen*
+* *Welche Farbe hat die italienische Flagge*
+* *Wer war der erste Mensch auf dem Mond*
+* *Wer erfand den Wechselstrom*
 * [...]
 
 ## Contribution
